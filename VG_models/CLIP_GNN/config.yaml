@@ -1,0 +1,44 @@
+[paths]
+scannet_data_root: /cluster/scratch/akjaer/Datasets/
+scanqa_data: /cluster/scratch/akjaer/Datasets/ScanQA/all_questions.json
+split_file_train: /cluster/scratch/akjaer/split_files/train-5ksamples.txt
+split_file_test: /cluster/scratch/akjaer/split_files/test.txt
+
+[model]
+model_name: VQAModel_attn
+cropping_method: 110_viz
+save_model: False
+
+# Params for VQAModel_attn
+gnn_type: GCN
+# Question encoding
+num_heads: 4
+num_encoder_layers: 2
+ff_dim: 512
+max_seq_length: 35
+# Cross attention
+xattn_num_layers: 2
+xattn_ff_dim: 512
+xattn_num_heads: 4
+dropout: 0.01
+ff_dim_downsize: 64
+
+[training]
+epochs: 300
+batch_size: 64
+lr: 0.0001
+weight_decay: 0
+# num_workers: None
+# normalize_data: False
+# loss_fn: None
+# optimizer: Adam
+
+[wandb]
+log: False
+project_name: AttSQ-Net
+run_name: wd1e-3
+
+[visualization]
+plot_confusion_matrix: False
+plot_attention_pattern: False
+visualize_examples: False

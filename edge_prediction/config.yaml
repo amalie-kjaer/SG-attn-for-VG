@@ -1,0 +1,41 @@
+[paths]
+train_data: /
+test_data: /
+save_model: True
+
+[model]
+model_name: MLP2
+dropout: None
+hidden_size: None
+num_layers: None
+input_size: None
+
+[training]
+#-----------------
+# Data module
+#-----------------
+epochs: 1500
+batch_size: 256
+num_workers: None
+shuffle_training_data: None
+normalize_data: True
+#-----------------
+# Loss
+#-----------------
+loss_fn: CrossEntropyLoss
+#-----------------
+# Optimizer
+#-----------------
+optimizer: Adam
+lr: 0.001
+
+[testing]
+batch_size: 256
+
+[wandb]
+log: True
+project_name: edge_mlp
+run_name: best_1500epochs
+
+[visualization]
+plot_confusion_matrix: True
